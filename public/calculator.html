@@ -1,0 +1,68 @@
+<html lang="en">
+  <head>
+    <title>Calculator Example</title>
+  </head>
+  <body>
+    <div>Result <span id="result"></span></div>
+    <script>
+      let num1 = 9;
+      let num2 = 12;
+
+      // Addition
+      fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById(
+            "result"
+          ).innerHTML = `Addition Result: ${data.result}`;
+        })
+        .catch((error) => {
+          console.error("Error during addition:", error);
+        });
+
+      // Subtraction
+      fetch(`/calculator/subtract?num1=${num1}&num2=${num2}`)
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById(
+            "result"
+          ).innerHTML += `<br>Subtraction Result: ${data.result}`;
+        })
+        .catch((error) => {
+          console.error("Error during subtraction:", error);
+        });
+
+      // Multiplication
+      fetch(`/calculator/multiply?num1=${num1}&num2=${num2}`)
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById(
+            "result"
+          ).innerHTML += `<br>Multiplication Result: ${data.result}`;
+        })
+        .catch((error) => {
+          console.error("Error during multiplication:", error);
+        });
+
+      // Division
+      fetch(`/calculator/divide?num1=${num1}&num2=${num2}`)
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error(
+              `Server returned ${response.status}: ${response.statusText}`
+            );
+          }
+        })
+        .then((data) => {
+          document.getElementById(
+            "result"
+          ).innerHTML += `<br>Division Result: ${data.result}`;
+        })
+        .catch((error) => {
+          console.error("Error during division:", error.message);
+        });
+    </script>
+  </body>
+</html>

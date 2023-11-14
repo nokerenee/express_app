@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/calc.css" />
+  </head>
+  <body>
+    <form class="calc">
+      <label for="input1">Input 1:</label><br />
+      <input type="text" id="input1" name="input1" /><br />
+      <label for="input2">Input 2:</label><br />
+      <input type="text" id="input2" name="input2" /><br />
+      <label for="result">Result:</label><br />
+      <input type="text" id="result" name="result" /><br />
+      <div class="button">
+        <button type="button" onclick="calculate('+')">
+          +
+        </button>
+        <button type="button" onclick="calculate('-')">
+          -
+        </button>
+        <br />
+        <button type="button" onclick="calculate('/')">
+          /
+        </button>
+        <button type="button" onclick="calculate('*')">
+          X
+        </button>
+      </div>
+      <input type="reset" value="Reset" onclick="clearResult()" />
+    </form>
+    <script src="/js/calc.js"></script>
+  </body>
+</html>
