@@ -1,3 +1,5 @@
+// Exercise 6: 
+
 class Logger {
     log(id, message) {
       const loggedMessage = `[${id}]: ${message}`;

@@ -1,3 +1,5 @@
+// Exercise 6: 
+
 const Logger = require('./Logger');
 
 class Calculator {
